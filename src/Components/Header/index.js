@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import * as Styled from './styles';
 
 const Header = () => {
   const activeStyle = {
@@ -7,11 +8,11 @@ const Header = () => {
     textTransform: 'uppercase'
   }
   return (
-    <nav style={{ fontSize: '20px'}}>
-      <NavLink to='/' end activeStyle={activeStyle} style={{ textDecoration: 'none', padding: '10px'}}>
+    <nav>
+      <NavLink to='/' end activeStyle={activeStyle}>
         Home
       </NavLink>
-      <NavLink to='products' activeStyle={activeStyle} style={{ textDecoration: 'none'}}>
+      <NavLink to='products' activeStyle={activeStyle}>
         Products
       </NavLink>
     </nav>

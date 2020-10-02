@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchData, apiEndpoint } from '../utils/api'; 
+import { fetchData, apiEndpoint } from '../../utils/api'; 
 
-export const Product = () => {
+const Product = () => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const params = useParams();
@@ -26,4 +26,6 @@ export const Product = () => {
       )}
     </div>
   )
-}
+};
+
+export default Product;

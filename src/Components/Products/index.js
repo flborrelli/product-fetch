@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
-import { Product } from './Product';
-import { fetchData, apiEndpoint } from '../utils/api'; 
+import Product from '../Product';
+import { fetchData, apiEndpoint } from '../../utils/api'; 
 
 const Products = () => {
 
