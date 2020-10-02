@@ -1,21 +1,29 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import * as Styled from './styles';
+import { Navigation, NavBtn } from './styles';
 
 const Header = () => {
+
   const activeStyle = {
-    color: '#239',
-    textTransform: 'uppercase'
+    background: '#ddd',
+
   }
+
   return (
-    <nav>
-      <NavLink to='/' end activeStyle={activeStyle}>
-        Home
-      </NavLink>
-      <NavLink to='products' activeStyle={activeStyle}>
-        Products
-      </NavLink>
-    </nav>
+    <Navigation>
+      <ul>
+        <li>
+          <NavBtn to='/' end activeStyle={activeStyle}>
+            Home
+          </NavBtn>
+        </li>
+        <li>
+          <NavBtn to='products' activeStyle={activeStyle}>
+            Products
+          </NavBtn>
+        </li>
+      </ul> 
+    </Navigation>
   )
 }
 

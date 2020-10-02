@@ -32,7 +32,12 @@ const Container = styled.div`
   margin: 0 auto;
 `
 
+const Content = styled.div`
+  flex: 1;
+`
+
 export {
   GlobalStyle,
   Container,
+  Content,
 };

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { GlobalStyle, Container } from './global.js';
+import { GlobalStyle, Container, Content } from './global.js';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Components/Home';
 import Products from './Components/Products';
@@ -13,11 +13,13 @@ const App = () => {
       <GlobalStyle/>
         <Container>
           <Header/>
-          <Routes>
-            <Route path='/' element={<Home />}/>
-            <Route path='products/*' element={<Products/>} />
-            <Route path='products/:id' element={<Product/>} />
-          </Routes>
+          <Content>
+            <Routes>
+              <Route path='/' element={<Home />}/>
+              <Route path='products/*' element={<Products/>} />
+              <Route path='products/:id' element={<Product/>} />
+            </Routes>
+          </Content>
         </Container>
     </BrowserRouter>
   )
