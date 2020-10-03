@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { normalize } from 'polished';
 
 
@@ -36,8 +36,32 @@ const Content = styled.div`
   flex: 1;
 `
 
+const loaderAnimation = keyframes`
+  to {
+    transform: rotate(360deg);
+  }
+`
+
+const Loader = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 10px solid #ccc;
+  border-right-color: transparent;
+  animation: ${loaderAnimation} 1s infinite;
+`
+
+const startAnimation = keyframes`
+  to {
+    transform: initial;
+    opacity: initial;
+  }
+`
+
 export {
   GlobalStyle,
   Container,
   Content,
+  Loader,
+  startAnimation,
 };

@@ -1,34 +1,37 @@
-import React, { useEffect, useState } from 'react';
-import { Route, Routes, Link } from 'react-router-dom';
-import Product from '../Product';
-import { fetchData, apiEndpoint } from '../../utils/api'; 
+import React, { useEffect } from 'react';
+import { Container } from './styles';
+import {  Loader } from '../../global';
+import { Link } from 'react-router-dom';
+import { apiEndpoint } from '../../utils/api'; 
+import useFetch from '../../hook/useFetch';
 
 const Products = () => {
 
-  const [products, setProducts] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const { data, loading, error, request } = useFetch();
 
   useEffect(() => {
-    fetchData(apiEndpoint, setProducts, setLoading)
-  }, [])
-  console.log(products)
+    request(apiEndpoint)
+  }, [request])
 
-  if(loading) { return <div>Loading...</div>};
+  if(loading) { return <Loader/> };
+  if (data === null) return null;
+  if (error) return <p>{error}</p>;
 
   return (
-    <div>
-      <>
-        {
-          !loading && products.map(product => {
-            return (
-              <div key={product.id}>
-                <Link to={`${product.id}`}>{product.nome}</Link>
-              </div>
-            )
-          })
-        }
-      </>
-    </div>
+    <Container>
+      {
+        data.map(product => {
+          return (
+            <div key={product.id}>
+              <Link to={`${product.id}`}>
+                <img src={product.fotos[0].src} alt={product.fotos[0].titulo} />
+                <h1>{product.nome}</h1>
+              </Link>
+            </div>
+          )
+        })
+      }
+    </Container>
   )
 }
 

@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { GlobalStyle, Container, Content } from './global.js';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Components/Home';
 import Products from './Components/Products';
 import Header from './Components/Header';
 import Product from './Components/Product';
-
 
 const App = () => {
   return(

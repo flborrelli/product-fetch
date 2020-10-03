@@ -1,12 +1,10 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { Navigation, NavBtn } from './styles';
 
 const Header = () => {
 
   const activeStyle = {
     background: '#ddd',
-
   }
 
   return (
